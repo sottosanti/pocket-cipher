@@ -8,10 +8,7 @@
 import SwiftUI
 
 struct HeaderView: View {
-    
     var body: some View {
-        
-            
         HStack(spacing: 0) { //header with logo
             
             Spacer()

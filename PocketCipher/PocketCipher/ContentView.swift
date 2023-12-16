@@ -11,19 +11,22 @@ struct ContentView: View {
     var body: some View {
         VStack(spacing:0) {
             HeaderView()
-            Divider()
-                .background(
-                    LinearGradient(
-                        gradient: Gradient(colors: [Color.yellow.opacity(0.3), Color.yellow.opacity(0.8), Color.yellow.opacity(0.3)]),
-                        startPoint: .leading,
-                        endPoint: .trailing
-                    )
-                    .frame(height: 2)
-                )
+            HeaderBottomBorder
             InputView()
         }
-        
-        
+    }
+    
+    // MARK: - SubViews
+    private var HeaderBottomBorder: some View {
+        Divider()
+            .background(
+                LinearGradient(
+                    gradient: Gradient(colors: [Color.yellow.opacity(0.3), Color.yellow.opacity(0.8), Color.yellow.opacity(0.3)]),
+                    startPoint: .leading,
+                    endPoint: .trailing
+                )
+                .frame(height: 2)
+            )
     }
 }
 

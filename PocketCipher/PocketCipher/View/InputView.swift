@@ -22,10 +22,10 @@ struct InputView: View {
     
     var body: some View {
         VStack(spacing:0) {
-            Spacer()
             toolMenu
             inputField
-                .padding(.bottom, 20)
+            convertButton
+                .padding(.vertical, 20)
             outputField
             Spacer()
         }
@@ -56,13 +56,19 @@ struct InputView: View {
                     Text(selectedOption1)
                         .padding()
                         .foregroundColor(.white)
-                    Image(systemName: "chevron.down") // Downward chevron icon
+                    Image(systemName: "chevron.down")
                         .foregroundColor(.white)
                         .padding(.trailing)
                 }
-                .background(Color("DefaultPurple")) // Changed color to purple
+                .background(Color("DefaultPurple"))
                 .cornerRadius(8)
             }
+            
+            // Middle Text
+            Text("To:")
+                .foregroundColor(Color.white)
+                .padding(.horizontal, 10)
+            
             
             // Dropdown menu button 2
             Menu {
@@ -106,28 +112,51 @@ struct InputView: View {
                 .padding(10)
                 .scrollContentBackground(.hidden) //opaque background
                 .background(Color.gray.opacity(0.4))
-                .foregroundColor(.black)
-                .accentColor(.black)
+                .foregroundColor(Color.white)
+                .accentColor(Color.yellow)
                 .cornerRadius(10)
                 .frame(width: UIScreen.main.bounds.width * 0.9, height: 200, alignment: .leading)
         }
-        //.padding()
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color.black.opacity(0.2), lineWidth: 1))
     }
+    
+    private var convertButton: some View {
+        Button(action: {
+            // Add action for the button here
+        }) {
+            Text("Convert Button")
+                .foregroundColor(.white)
+                .padding()
+                .background(
+                    LinearGradient(gradient: Gradient(colors: [Color("Gold"), Color.yellow.opacity(0.6)]), startPoint: .top, endPoint: .bottom)
+                )
+                .cornerRadius(8)
+                .shadow(color: Color.black.opacity(0.2), radius: 3, x: 1, y: 4)
+        }
+        }
     
     private var outputField: some View {
         
-            TextEditor(text: $textInput)
-            .disableAutocorrection(true)
-            .autocapitalization(.none)
-            .padding(10)
-            .scrollContentBackground(.hidden) //opaque background
-            .background(Color.gray.opacity(0.4))
-            .foregroundColor(.black)
-            .accentColor(.black)
-            .cornerRadius(10)
-            .frame(width: UIScreen.main.bounds.width * 0.9, height: 200, alignment: .leading)
-    }
+        VStack(spacing: 0) {
+            ScrollView {
+                Text("This is a long sample text. " +
+                     "It could be several lines long and may require scrolling " +
+                     "to read the entire content.")
+                    .padding()
+                    .foregroundColor(.white)
+                
+            }
+        }//end VStack
+        .frame(width: UIScreen.main.bounds.width * 0.9, height: 200)
+        .background(Color.gray.opacity(0.4))
+        .cornerRadius(10)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color.black.opacity(0.3), lineWidth: 1))
   
+    }
 }
 
 struct InputView_Previews: PreviewProvider {
