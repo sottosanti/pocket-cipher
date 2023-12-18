@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		99B04FD72B30F39200E7B9E3 /* Ciphers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B04FD62B30F39200E7B9E3 /* Ciphers.swift */; };
 		99F36D442B2B8A70004FA20A /* PocketCipherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F36D432B2B8A70004FA20A /* PocketCipherApp.swift */; };
 		99F36D462B2B8A70004FA20A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F36D452B2B8A70004FA20A /* ContentView.swift */; };
 		99F36D482B2B8A72004FA20A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F36D472B2B8A72004FA20A /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		99B04FD62B30F39200E7B9E3 /* Ciphers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ciphers.swift; sourceTree = "<group>"; };
 		99F36D402B2B8A70004FA20A /* PocketCipher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketCipher.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F36D432B2B8A70004FA20A /* PocketCipherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketCipherApp.swift; sourceTree = "<group>"; };
 		99F36D452B2B8A70004FA20A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -75,6 +77,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		99B04FD52B30F38300E7B9E3 /* Ciphers */ = {
+			isa = PBXGroup;
+			children = (
+				99B04FD62B30F39200E7B9E3 /* Ciphers.swift */,
+			);
+			path = Ciphers;
+			sourceTree = "<group>";
+		};
 		99F36D372B2B8A70004FA20A = {
 			isa = PBXGroup;
 			children = (
@@ -98,6 +108,7 @@
 		99F36D422B2B8A70004FA20A /* PocketCipher */ = {
 			isa = PBXGroup;
 			children = (
+				99B04FD52B30F38300E7B9E3 /* Ciphers */,
 				99F36D432B2B8A70004FA20A /* PocketCipherApp.swift */,
 				99F36D452B2B8A70004FA20A /* ContentView.swift */,
 				99F36D6D2B2B8B39004FA20A /* View */,
@@ -275,6 +286,7 @@
 				99F36D712B2B96F8004FA20A /* InputView.swift in Sources */,
 				99F36D6F2B2B8B49004FA20A /* HeaderView.swift in Sources */,
 				99F36D442B2B8A70004FA20A /* PocketCipherApp.swift in Sources */,
+				99B04FD72B30F39200E7B9E3 /* Ciphers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
