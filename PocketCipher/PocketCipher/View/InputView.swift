@@ -9,20 +9,25 @@ import SwiftUI
 
 struct InputView: View {
     
-    // Dropdown options
-    let options1 = ["Option 1", "Option 2", "Option 3"]
-    let options2 = ["Choice A", "Choice B", "Choice C"]
+    // Cipher options
+    let cipherOptions = ["Caesar Cipher", "Atbash Cipher", "ROT13", "Caesar - All Rotations"]
 
+    // Caesar Cipher rotations
+    let caesarRotations = Array(0...25).map { "\($0)" }
+    
     // State variables to track selected options
-    @State private var selectedOption1 = "Option 1"
-    @State private var selectedOption2 = "Choice A"
+    @State private var selectedCipher = "Caesar Cipher"
+    @State private var selectedRotation = "0"
     
     @State private var textInput: String = ""
     @State private var textOutput: String = ""
     
     var body: some View {
         VStack(spacing:0) {
-            toolMenu
+            cipherMenu
+            if selectedCipher == "Caesar Cipher" {
+                rotationMenu
+            }
             inputField
             convertButton
                 .padding(.vertical, 20)
@@ -40,61 +45,53 @@ struct InputView: View {
     }
     
     // MARK: - SubViews
-    private var toolMenu: some View {
-        HStack {
-            // Dropdown menu button 1
-            Menu {
-                ForEach(options1, id: \.self) { option in
-                    Button(action: {
-                        self.selectedOption1 = option
-                    }) {
-                        Text(option)
-                    }
+    private var cipherMenu: some View {
+        Menu {
+            ForEach(cipherOptions, id: \.self) { cipher in
+                Button(action: {
+                    self.selectedCipher = cipher
+                }) {
+                    Text(cipher)
                 }
-            } label: {
-                HStack {
-                    Text(selectedOption1)
-                        .padding()
-                        .foregroundColor(.white)
-                    Image(systemName: "chevron.down")
-                        .foregroundColor(.white)
-                        .padding(.trailing)
-                }
-                .background(Color("DefaultPurple"))
-                .cornerRadius(8)
             }
-            
-            // Middle Text
-            Text("To:")
-                .foregroundColor(Color.white)
-                .padding(.horizontal, 10)
-            
-            
-            // Dropdown menu button 2
-            Menu {
-                ForEach(options2, id: \.self) { option in
-                    Button(action: {
-                        self.selectedOption2 = option
-                    }) {
-                        Text(option)
-                    }
-                }
-            } label: {
-                HStack {
-                    Text(selectedOption2)
-                        .padding()
-                        .foregroundColor(.white)
-                    Image(systemName: "chevron.down")
-                        .foregroundColor(.white)
-                        .padding(.trailing)
-                }
-                .background(Color("DefaultPurple"))
-                .cornerRadius(8)
+        } label: {
+            HStack {
+                Text(selectedCipher)
+                    .padding()
+                    .foregroundColor(.white)
+                Image(systemName: "chevron.down")
+                    .foregroundColor(.white)
+                    .padding(.trailing)
             }
+            .background(Color("DefaultPurple"))
+            .cornerRadius(8)
         }
         .padding()
     }
     
+    private var rotationMenu: some View {
+        Menu {
+            ForEach(caesarRotations, id: \.self) { rotation in
+                Button(action: {
+                    self.selectedRotation = rotation
+                }) {
+                    Text(rotation)
+                }
+            }
+        } label: {
+            HStack {
+                Text("Rotation: \(selectedRotation)")
+                    .padding()
+                    .foregroundColor(.white)
+                Image(systemName: "chevron.down")
+                    .foregroundColor(.white)
+                    .padding(.trailing)
+            }
+            .background(Color("DefaultPurple"))
+            .cornerRadius(8)
+        }
+        .padding()
+    }
     
     private var inputField: some View {
         //Custom text editor with placeholder text
@@ -124,8 +121,20 @@ struct InputView: View {
     
     private var convertButton: some View {
         Button(action: {
-            // Add action for the button here
-            textOutput = Ciphers().caesarCipher(textInput, shift: 13)
+            // Convert text based on the selected cipher
+            switch selectedCipher {
+            case "Caesar Cipher":
+                let rotation = Int(selectedRotation) ?? 0
+                textOutput = Ciphers().caesarCipher(textInput, shift: rotation)
+            case "Atbash Cipher":
+                textOutput = Ciphers().atbashCipher(textInput)
+            case "ROT13":
+                textOutput = Ciphers().rot13(textInput)
+            case "Caesar - All Rotations":
+                textOutput = allCaesarRotations(text: textInput)
+            default:
+                textOutput = ""
+            }
         }) {
             Text("Convert")
                 .foregroundColor(.white)
@@ -136,7 +145,7 @@ struct InputView: View {
                 .cornerRadius(8)
                 .shadow(color: Color.black.opacity(0.2), radius: 3, x: 1, y: 4)
         }
-        }
+    }
     
     private var outputField: some View {
         
@@ -158,6 +167,14 @@ struct InputView: View {
     }
 }
 
+// MARK: - Functions
+private func allCaesarRotations(text: String) -> String {
+    return (0..<26).map { rotation -> String in
+        "Rotation \(rotation): \(Ciphers().caesarCipher(text, shift: rotation))"
+    }.joined(separator: "\n")
+}
+
+// MARK: - Previews
 struct InputView_Previews: PreviewProvider {
     static var previews: some View {
         InputView()
