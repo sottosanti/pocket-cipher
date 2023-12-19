@@ -1,0 +1,616 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		99B04FD72B30F39200E7B9E3 /* Ciphers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B04FD62B30F39200E7B9E3 /* Ciphers.swift */; };
+		99F36D442B2B8A70004FA20A /* PocketCipherApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F36D432B2B8A70004FA20A /* PocketCipherApp.swift */; };
+		99F36D462B2B8A70004FA20A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F36D452B2B8A70004FA20A /* ContentView.swift */; };
+		99F36D482B2B8A72004FA20A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F36D472B2B8A72004FA20A /* Assets.xcassets */; };
+		99F36D4B2B2B8A72004FA20A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99F36D4A2B2B8A72004FA20A /* Preview Assets.xcassets */; };
+		99F36D552B2B8A72004FA20A /* PocketCipherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F36D542B2B8A72004FA20A /* PocketCipherTests.swift */; };
+		99F36D5F2B2B8A72004FA20A /* PocketCipherUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F36D5E2B2B8A72004FA20A /* PocketCipherUITests.swift */; };
+		99F36D612B2B8A72004FA20A /* PocketCipherUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F36D602B2B8A72004FA20A /* PocketCipherUITestsLaunchTests.swift */; };
+		99F36D6F2B2B8B49004FA20A /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F36D6E2B2B8B49004FA20A /* HeaderView.swift */; };
+		99F36D712B2B96F8004FA20A /* InputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F36D702B2B96F8004FA20A /* InputView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		99F36D512B2B8A72004FA20A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 99F36D382B2B8A70004FA20A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 99F36D3F2B2B8A70004FA20A;
+			remoteInfo = PocketCipher;
+		};
+		99F36D5B2B2B8A72004FA20A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 99F36D382B2B8A70004FA20A /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 99F36D3F2B2B8A70004FA20A;
+			remoteInfo = PocketCipher;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		99B04FD62B30F39200E7B9E3 /* Ciphers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ciphers.swift; sourceTree = "<group>"; };
+		99F36D402B2B8A70004FA20A /* PocketCipher.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PocketCipher.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		99F36D432B2B8A70004FA20A /* PocketCipherApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketCipherApp.swift; sourceTree = "<group>"; };
+		99F36D452B2B8A70004FA20A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		99F36D472B2B8A72004FA20A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		99F36D4A2B2B8A72004FA20A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		99F36D502B2B8A72004FA20A /* PocketCipherTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketCipherTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		99F36D542B2B8A72004FA20A /* PocketCipherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketCipherTests.swift; sourceTree = "<group>"; };
+		99F36D5A2B2B8A72004FA20A /* PocketCipherUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PocketCipherUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		99F36D5E2B2B8A72004FA20A /* PocketCipherUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketCipherUITests.swift; sourceTree = "<group>"; };
+		99F36D602B2B8A72004FA20A /* PocketCipherUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PocketCipherUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		99F36D6E2B2B8B49004FA20A /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		99F36D702B2B96F8004FA20A /* InputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputView.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		99F36D3D2B2B8A70004FA20A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99F36D4D2B2B8A72004FA20A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99F36D572B2B8A72004FA20A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		99B04FD52B30F38300E7B9E3 /* Ciphers */ = {
+			isa = PBXGroup;
+			children = (
+				99B04FD62B30F39200E7B9E3 /* Ciphers.swift */,
+			);
+			path = Ciphers;
+			sourceTree = "<group>";
+		};
+		99F36D372B2B8A70004FA20A = {
+			isa = PBXGroup;
+			children = (
+				99F36D422B2B8A70004FA20A /* PocketCipher */,
+				99F36D532B2B8A72004FA20A /* PocketCipherTests */,
+				99F36D5D2B2B8A72004FA20A /* PocketCipherUITests */,
+				99F36D412B2B8A70004FA20A /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		99F36D412B2B8A70004FA20A /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				99F36D402B2B8A70004FA20A /* PocketCipher.app */,
+				99F36D502B2B8A72004FA20A /* PocketCipherTests.xctest */,
+				99F36D5A2B2B8A72004FA20A /* PocketCipherUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		99F36D422B2B8A70004FA20A /* PocketCipher */ = {
+			isa = PBXGroup;
+			children = (
+				99B04FD52B30F38300E7B9E3 /* Ciphers */,
+				99F36D432B2B8A70004FA20A /* PocketCipherApp.swift */,
+				99F36D452B2B8A70004FA20A /* ContentView.swift */,
+				99F36D6D2B2B8B39004FA20A /* View */,
+				99F36D472B2B8A72004FA20A /* Assets.xcassets */,
+				99F36D492B2B8A72004FA20A /* Preview Content */,
+			);
+			path = PocketCipher;
+			sourceTree = "<group>";
+		};
+		99F36D492B2B8A72004FA20A /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				99F36D4A2B2B8A72004FA20A /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		99F36D532B2B8A72004FA20A /* PocketCipherTests */ = {
+			isa = PBXGroup;
+			children = (
+				99F36D542B2B8A72004FA20A /* PocketCipherTests.swift */,
+			);
+			path = PocketCipherTests;
+			sourceTree = "<group>";
+		};
+		99F36D5D2B2B8A72004FA20A /* PocketCipherUITests */ = {
+			isa = PBXGroup;
+			children = (
+				99F36D5E2B2B8A72004FA20A /* PocketCipherUITests.swift */,
+				99F36D602B2B8A72004FA20A /* PocketCipherUITestsLaunchTests.swift */,
+			);
+			path = PocketCipherUITests;
+			sourceTree = "<group>";
+		};
+		99F36D6D2B2B8B39004FA20A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				99F36D6E2B2B8B49004FA20A /* HeaderView.swift */,
+				99F36D702B2B96F8004FA20A /* InputView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		99F36D3F2B2B8A70004FA20A /* PocketCipher */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 99F36D642B2B8A72004FA20A /* Build configuration list for PBXNativeTarget "PocketCipher" */;
+			buildPhases = (
+				99F36D3C2B2B8A70004FA20A /* Sources */,
+				99F36D3D2B2B8A70004FA20A /* Frameworks */,
+				99F36D3E2B2B8A70004FA20A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PocketCipher;
+			productName = PocketCipher;
+			productReference = 99F36D402B2B8A70004FA20A /* PocketCipher.app */;
+			productType = "com.apple.product-type.application";
+		};
+		99F36D4F2B2B8A72004FA20A /* PocketCipherTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 99F36D672B2B8A72004FA20A /* Build configuration list for PBXNativeTarget "PocketCipherTests" */;
+			buildPhases = (
+				99F36D4C2B2B8A72004FA20A /* Sources */,
+				99F36D4D2B2B8A72004FA20A /* Frameworks */,
+				99F36D4E2B2B8A72004FA20A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				99F36D522B2B8A72004FA20A /* PBXTargetDependency */,
+			);
+			name = PocketCipherTests;
+			productName = PocketCipherTests;
+			productReference = 99F36D502B2B8A72004FA20A /* PocketCipherTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		99F36D592B2B8A72004FA20A /* PocketCipherUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 99F36D6A2B2B8A72004FA20A /* Build configuration list for PBXNativeTarget "PocketCipherUITests" */;
+			buildPhases = (
+				99F36D562B2B8A72004FA20A /* Sources */,
+				99F36D572B2B8A72004FA20A /* Frameworks */,
+				99F36D582B2B8A72004FA20A /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				99F36D5C2B2B8A72004FA20A /* PBXTargetDependency */,
+			);
+			name = PocketCipherUITests;
+			productName = PocketCipherUITests;
+			productReference = 99F36D5A2B2B8A72004FA20A /* PocketCipherUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		99F36D382B2B8A70004FA20A /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1430;
+				LastUpgradeCheck = 1430;
+				TargetAttributes = {
+					99F36D3F2B2B8A70004FA20A = {
+						CreatedOnToolsVersion = 14.3;
+					};
+					99F36D4F2B2B8A72004FA20A = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 99F36D3F2B2B8A70004FA20A;
+					};
+					99F36D592B2B8A72004FA20A = {
+						CreatedOnToolsVersion = 14.3;
+						TestTargetID = 99F36D3F2B2B8A70004FA20A;
+					};
+				};
+			};
+			buildConfigurationList = 99F36D3B2B2B8A70004FA20A /* Build configuration list for PBXProject "PocketCipher" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 99F36D372B2B8A70004FA20A;
+			productRefGroup = 99F36D412B2B8A70004FA20A /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				99F36D3F2B2B8A70004FA20A /* PocketCipher */,
+				99F36D4F2B2B8A72004FA20A /* PocketCipherTests */,
+				99F36D592B2B8A72004FA20A /* PocketCipherUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		99F36D3E2B2B8A70004FA20A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99F36D4B2B2B8A72004FA20A /* Preview Assets.xcassets in Resources */,
+				99F36D482B2B8A72004FA20A /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99F36D4E2B2B8A72004FA20A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99F36D582B2B8A72004FA20A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		99F36D3C2B2B8A70004FA20A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99F36D462B2B8A70004FA20A /* ContentView.swift in Sources */,
+				99F36D712B2B96F8004FA20A /* InputView.swift in Sources */,
+				99F36D6F2B2B8B49004FA20A /* HeaderView.swift in Sources */,
+				99F36D442B2B8A70004FA20A /* PocketCipherApp.swift in Sources */,
+				99B04FD72B30F39200E7B9E3 /* Ciphers.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99F36D4C2B2B8A72004FA20A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99F36D552B2B8A72004FA20A /* PocketCipherTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99F36D562B2B8A72004FA20A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99F36D5F2B2B8A72004FA20A /* PocketCipherUITests.swift in Sources */,
+				99F36D612B2B8A72004FA20A /* PocketCipherUITestsLaunchTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		99F36D522B2B8A72004FA20A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 99F36D3F2B2B8A70004FA20A /* PocketCipher */;
+			targetProxy = 99F36D512B2B8A72004FA20A /* PBXContainerItemProxy */;
+		};
+		99F36D5C2B2B8A72004FA20A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 99F36D3F2B2B8A70004FA20A /* PocketCipher */;
+			targetProxy = 99F36D5B2B2B8A72004FA20A /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		99F36D622B2B8A72004FA20A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		99F36D632B2B8A72004FA20A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		99F36D652B2B8A72004FA20A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PocketCipher/Preview Content\"";
+				DEVELOPMENT_TEAM = 3CJ7U26B8W;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = gg.joystiq.PocketCipher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		99F36D662B2B8A72004FA20A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"PocketCipher/Preview Content\"";
+				DEVELOPMENT_TEAM = 3CJ7U26B8W;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = gg.joystiq.PocketCipher;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		99F36D682B2B8A72004FA20A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3CJ7U26B8W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = gg.joystiq.PocketCipherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PocketCipher.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PocketCipher";
+			};
+			name = Debug;
+		};
+		99F36D692B2B8A72004FA20A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3CJ7U26B8W;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 16.4;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = gg.joystiq.PocketCipherTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/PocketCipher.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/PocketCipher";
+			};
+			name = Release;
+		};
+		99F36D6B2B2B8A72004FA20A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3CJ7U26B8W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = gg.joystiq.PocketCipherUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PocketCipher;
+			};
+			name = Debug;
+		};
+		99F36D6C2B2B8A72004FA20A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 3CJ7U26B8W;
+				GENERATE_INFOPLIST_FILE = YES;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = gg.joystiq.PocketCipherUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = PocketCipher;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		99F36D3B2B2B8A70004FA20A /* Build configuration list for PBXProject "PocketCipher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99F36D622B2B8A72004FA20A /* Debug */,
+				99F36D632B2B8A72004FA20A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		99F36D642B2B8A72004FA20A /* Build configuration list for PBXNativeTarget "PocketCipher" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99F36D652B2B8A72004FA20A /* Debug */,
+				99F36D662B2B8A72004FA20A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		99F36D672B2B8A72004FA20A /* Build configuration list for PBXNativeTarget "PocketCipherTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99F36D682B2B8A72004FA20A /* Debug */,
+				99F36D692B2B8A72004FA20A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		99F36D6A2B2B8A72004FA20A /* Build configuration list for PBXNativeTarget "PocketCipherUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99F36D6B2B2B8A72004FA20A /* Debug */,
+				99F36D6C2B2B8A72004FA20A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 99F36D382B2B8A70004FA20A /* Project object */;
+}
