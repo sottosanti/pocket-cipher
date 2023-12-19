@@ -10,7 +10,7 @@ import SwiftUI
 struct InputView: View {
     
     // Cipher options
-    let cipherOptions = ["Caesar Cipher", "Atbash Cipher", "ROT13", "Caesar - All Rotations"]
+    let cipherOptions = ["Caesar Cipher", "Atbash Cipher", "ROT13"]
 
     // Caesar Cipher rotations
     let caesarRotations = Array(0...25).map { "\($0)" }
@@ -18,7 +18,6 @@ struct InputView: View {
     // State variables to track selected options
     @State private var selectedCipher = "Caesar Cipher"
     @State private var selectedRotation = "0"
-    
     @State private var textInput: String = ""
     @State private var textOutput: String = ""
     
@@ -29,19 +28,21 @@ struct InputView: View {
                 rotationMenu
             }
             inputField
-            convertButton
-                .padding(.vertical, 20)
+            buttonRow
             outputField
             Spacer()
         }
         .frame(width: UIScreen.main.bounds.width)
         .background(
             LinearGradient(
-                gradient: Gradient(colors: [Color("GradientDark"), Color("GradientLight") ]),
+                gradient: Gradient(colors: [Color("GradientDark"), Color("GradientLight")]),
                 startPoint: .bottom,
                 endPoint: .top
             )
         )
+        .onTapGesture {
+            hideKeyboard()
+        }
     }
     
     // MARK: - SubViews
@@ -119,6 +120,16 @@ struct InputView: View {
                 .stroke(Color.black.opacity(0.2), lineWidth: 1))
     }
     
+    private var buttonRow: some View {
+        HStack {
+            convertButton
+            if selectedCipher == "Caesar Cipher" {
+                allRotationsButton
+            }
+        }
+        .padding(.vertical, 20)
+    }
+    
     private var convertButton: some View {
         Button(action: {
             // Convert text based on the selected cipher
@@ -137,6 +148,21 @@ struct InputView: View {
             }
         }) {
             Text("Convert")
+                .foregroundColor(.white)
+                .padding()
+                .background(
+                    LinearGradient(gradient: Gradient(colors: [Color("Gold"), Color.yellow.opacity(0.6)]), startPoint: .top, endPoint: .bottom)
+                )
+                .cornerRadius(8)
+                .shadow(color: Color.black.opacity(0.2), radius: 3, x: 1, y: 4)
+        }
+    }
+    
+    private var allRotationsButton: some View {
+        Button(action: {
+            textOutput = allCaesarRotations(text: textInput)
+        }) {
+            Text("All Rotations")
                 .foregroundColor(.white)
                 .padding()
                 .background(
@@ -174,6 +200,9 @@ private func allCaesarRotations(text: String) -> String {
     }.joined(separator: "\n")
 }
 
+private func hideKeyboard() {
+    UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
+}
 // MARK: - Previews
 struct InputView_Previews: PreviewProvider {
     static var previews: some View {
