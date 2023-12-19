@@ -125,8 +125,9 @@ struct InputView: View {
     private var convertButton: some View {
         Button(action: {
             // Add action for the button here
+            textOutput = Ciphers().caesarCipher(textInput, shift: 13)
         }) {
-            Text("Convert Button")
+            Text("Convert")
                 .foregroundColor(.white)
                 .padding()
                 .background(
@@ -141,9 +142,7 @@ struct InputView: View {
         
         VStack(spacing: 0) {
             ScrollView {
-                Text("This is a long sample text. " +
-                     "It could be several lines long and may require scrolling " +
-                     "to read the entire content.")
+                Text(textOutput)
                     .padding()
                     .foregroundColor(.white)
                 
