@@ -10,7 +10,8 @@ import SwiftUI
 struct InputView: View {
     
     // Cipher options
-    let cipherOptions = ["Caesar Cipher", "Atbash Cipher", "ROT13"]
+    let cipherOptions = ["Caesar Cipher", "Atbash Cipher", "ROT13", "Text to Binary", "Binary to Text", "Text to Hex", "Hex to Text", "Text to Base64", "Base64 to Text"]
+
 
     // Caesar Cipher rotations
     let caesarRotations = Array(0...25).map { "\($0)" }
@@ -141,8 +142,18 @@ struct InputView: View {
                 textOutput = Ciphers().atbashCipher(textInput)
             case "ROT13":
                 textOutput = Ciphers().rot13(textInput)
-            case "Caesar - All Rotations":
-                textOutput = allCaesarRotations(text: textInput)
+            case "Text to Binary":
+                textOutput = DataFormatter().textToBinary(textInput)
+            case "Binary to Text":
+                textOutput = DataFormatter().binaryToText(textInput)
+            case "Text to Hex":
+                textOutput = DataFormatter().textToHex(textInput)
+            case "Hex to Text":
+                textOutput = DataFormatter().hexToText(textInput)
+            case "Text to Base64":
+                textOutput = DataFormatter().textToBase64(textInput)
+            case "Base64 to Text":
+                textOutput = DataFormatter().base64ToText(textInput)
             default:
                 textOutput = ""
             }
@@ -173,24 +184,62 @@ struct InputView: View {
         }
     }
     
+//    private var outputField: some View {
+//        
+//        VStack(spacing: 0) {
+//            ScrollView {
+//                Text(textOutput)
+//                    .padding()
+//                    .foregroundColor(.white)
+//                
+//            }
+//        }//end VStack
+//        .frame(width: UIScreen.main.bounds.width * 0.9, height: 200)
+//        .background(Color.gray.opacity(0.4))
+//        .cornerRadius(10)
+//        .overlay(
+//            RoundedRectangle(cornerRadius: 10)
+//                .stroke(Color.black.opacity(0.3), lineWidth: 1))
+//  
+//    }
     private var outputField: some View {
-        
         VStack(spacing: 0) {
             ScrollView {
-                Text(textOutput)
+                HStack {
+                    Text(textOutput)
+                        .padding()
+                        .foregroundColor(.white)
+
+                    Spacer()
+
+                    // Copy Button
+                    Button(action: {
+                        UIPasteboard.general.string = textOutput
+                    }) {
+                        Image(systemName: "doc.on.doc")
+                            .foregroundColor(.white)
+                    }
                     .padding()
-                    .foregroundColor(.white)
-                
+                }
             }
-        }//end VStack
-        .frame(width: UIScreen.main.bounds.width * 0.9, height: 200)
-        .background(Color.gray.opacity(0.4))
-        .cornerRadius(10)
+            .frame(width: UIScreen.main.bounds.width * 0.9, height: 200)
+            .background(Color.gray.opacity(0.4))
+            .cornerRadius(10)
+
+            // Up Arrow Button
+            Button(action: {
+                textInput = textOutput
+            }) {
+                Image(systemName: "arrow.up")
+                    .foregroundColor(.white)
+                    .padding()
+            }
+        }
         .overlay(
             RoundedRectangle(cornerRadius: 10)
                 .stroke(Color.black.opacity(0.3), lineWidth: 1))
-  
     }
+
 }
 
 // MARK: - Functions
