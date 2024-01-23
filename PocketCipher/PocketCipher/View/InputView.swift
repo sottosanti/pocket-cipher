@@ -9,34 +9,37 @@ import SwiftUI
 
 struct InputView: View {
     
-    // Cipher options
+    /*
     let cipherOptions = ["Caesar Cipher", "Atbash Cipher", "ROT13", "Text to Binary", "Binary to Text", "Text to Hex", "Hex to Text", "Text to Base64", "Base64 to Text"]
-
-
+     */
+     
     // Caesar Cipher rotations
     let caesarRotations = Array(0...25).map { "\($0)" }
     
     // State variables to track selected options
-    @State private var selectedCipher = "Caesar Cipher"
     @State private var selectedRotation = "0"
     @State private var textInput: String = ""
     @State private var textOutput: String = ""
     
+    //new vars
+    let actionOptions = ["Encrypt", "Decrypt"]
+    @State private var selectedAction = "Encrypt"
+    let algoOptions = ["Caesar Cipher", "Atbash Cipher", "ROT13", "Binary", "Hex", "Base64"]
+    @State private var selectedAlgo = "Select"
+    
+    
     var body: some View {
         VStack(spacing:0) {
-            cipherMenu
-            if selectedCipher == "Caesar Cipher" {
-                rotationMenu
-            }
+            interactionMenu
             inputField
-            buttonRow
+            convertButton
             outputField
             Spacer()
         }
         .frame(width: UIScreen.main.bounds.width)
         .background(
             LinearGradient(
-                gradient: Gradient(colors: [Color("GradientDark"), Color("GradientLight")]),
+                gradient: Gradient(colors: [Color("GradientLightDark2"), Color("GradientLightLight")]),
                 startPoint: .bottom,
                 endPoint: .top
             )
@@ -47,28 +50,90 @@ struct InputView: View {
     }
     
     // MARK: - SubViews
-    private var cipherMenu: some View {
+    private var interactionMenu: some View {
+        HStack(spacing: 10) {
+            actionMenu
+            algoOptionMenu
+            
+            if selectedAlgo == "Caesar Cipher" {
+                rotationMenu
+            }
+            
+        } //end HStack with [action, algos, rotations]
+        .frame(height: UIScreen.main.bounds.height * 0.08)
+        .padding(.vertical, 20)
+        
+        
+    }
+    
+    private var actionMenu: some View {
         Menu {
-            ForEach(cipherOptions, id: \.self) { cipher in
+            ForEach(actionOptions, id: \.self) { action in
                 Button(action: {
-                    self.selectedCipher = cipher
+                    self.selectedAction = action
                 }) {
-                    Text(cipher)
+                    Text(action)
                 }
             }
         } label: {
-            HStack {
-                Text(selectedCipher)
-                    .padding()
-                    .foregroundColor(.white)
-                Image(systemName: "chevron.down")
-                    .foregroundColor(.white)
-                    .padding(.trailing)
+            VStack(spacing: 0) {
+                Text("Action")
+                    .foregroundColor(Color("GoldLight"))
+                    .font(.system(size: 14))
+                    .padding(.bottom, 5)
+                
+                HStack {
+                    Text(selectedAction)
+                        .foregroundColor(.white)
+                    Image(systemName: "chevron.down")
+                        .foregroundColor(Color.yellow.opacity(0.8))
+                        .padding(.trailing)
+                } //end HStack
+                .padding(.vertical, 15)
+                .padding(.leading, 15)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.yellow.opacity(0.8), lineWidth: 1) // Adjust the lineWidth as needed
+                )
+                .background(Color.clear)
+                .cornerRadius(8)
+            } //end Vstack with "Action" and Menu
+        } //end Label
+    }
+    
+    private var algoOptionMenu: some View {
+        Menu {
+            ForEach(algoOptions, id: \.self) { algo in
+                Button(action: {
+                    self.selectedAlgo = algo
+                }) {
+                    Text(algo)
+                }
             }
-            .background(Color("DefaultPurple"))
-            .cornerRadius(8)
-        }
-        .padding()
+        } label: {
+            VStack(spacing: 0) {
+                Text(selectedAction == "Encrypt" ? "To:" : "From:")
+                    .foregroundColor(Color("GoldLight"))
+                    .font(.system(size: 14))
+                    .padding(.bottom, 5)
+                
+                HStack {
+                    Text(selectedAlgo)
+                        .foregroundColor(.white)
+                    Image(systemName: "chevron.down")
+                        .foregroundColor(Color.yellow.opacity(0.8))
+                        .padding(.trailing)
+                } //end HStack
+                .padding(.vertical, 15)
+                .padding(.leading, 15)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.yellow.opacity(0.8), lineWidth: 1) // Adjust the lineWidth as needed
+                )
+                .background(Color.clear)
+                .cornerRadius(8)
+            }
+        }//end VStack with "Algorithm" and Menu
     }
     
     private var rotationMenu: some View {
@@ -81,18 +146,29 @@ struct InputView: View {
                 }
             }
         } label: {
-            HStack {
-                Text("Rotation: \(selectedRotation)")
-                    .padding()
-                    .foregroundColor(.white)
-                Image(systemName: "chevron.down")
-                    .foregroundColor(.white)
-                    .padding(.trailing)
+            VStack(spacing: 0) {
+                Text("Rotations")
+                    .foregroundColor(Color("GoldLight"))
+                    .font(.system(size: 14))
+                    .padding(.bottom, 5)
+                
+                HStack {
+                    Text("\(selectedRotation)")
+                        .foregroundColor(.white)
+                    Image(systemName: "chevron.down")
+                        .foregroundColor(Color.yellow)
+                        .padding(.trailing)
+                }
+                .padding(.vertical, 15)
+                .padding(.leading, 15)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color.yellow, lineWidth: 1) // Adjust the lineWidth as needed
+                )
+                .background(Color.clear)
+                .cornerRadius(8)
             }
-            .background(Color("DefaultPurple"))
-            .cornerRadius(8)
         }
-        .padding()
     }
     
     private var inputField: some View {
@@ -121,51 +197,61 @@ struct InputView: View {
                 .stroke(Color.black.opacity(0.2), lineWidth: 1))
     }
     
-    private var buttonRow: some View {
-        HStack {
-            convertButton
-            if selectedCipher == "Caesar Cipher" {
-                allRotationsButton
-            }
-        }
-        .padding(.vertical, 20)
-    }
-    
     private var convertButton: some View {
         Button(action: {
             // Convert text based on the selected cipher
-            switch selectedCipher {
-            case "Caesar Cipher":
-                let rotation = Int(selectedRotation) ?? 0
-                textOutput = Ciphers().caesarCipher(textInput, shift: rotation)
-            case "Atbash Cipher":
-                textOutput = Ciphers().atbashCipher(textInput)
-            case "ROT13":
-                textOutput = Ciphers().rot13(textInput)
-            case "Text to Binary":
-                textOutput = DataFormatter().textToBinary(textInput)
-            case "Binary to Text":
-                textOutput = DataFormatter().binaryToText(textInput)
-            case "Text to Hex":
-                textOutput = DataFormatter().textToHex(textInput)
-            case "Hex to Text":
-                textOutput = DataFormatter().hexToText(textInput)
-            case "Text to Base64":
-                textOutput = DataFormatter().textToBase64(textInput)
-            case "Base64 to Text":
-                textOutput = DataFormatter().base64ToText(textInput)
-            default:
-                textOutput = ""
+            if (selectedAction == "Encrypt") {
+                switch selectedAlgo {
+                case "Caesar Cipher":
+                    let rotation = Int(selectedRotation) ?? 0
+                    textOutput = Ciphers().caesarCipher(textInput, shift: rotation)
+                case "Atbash Cipher":
+                    textOutput = Ciphers().atbashCipher(textInput)
+                case "ROT13":
+                    textOutput = Ciphers().rot13(textInput)
+                case "Binary":
+                    textOutput = DataFormatter().textToBinary(textInput)
+                case "Hex":
+                    textOutput = DataFormatter().textToHex(textInput)
+                case "Base64":
+                    textOutput = DataFormatter().textToBase64(textInput)
+                default:
+                    textOutput = ""
+                }
             }
+            else { //decrpyt
+                switch selectedAlgo {
+                case "Caesar Cipher":
+                    let rotation = Int(selectedRotation) ?? 0
+                    textOutput = Ciphers().caesarCipher(textInput, shift: rotation)
+                case "Atbash Cipher":
+                    textOutput = Ciphers().atbashCipher(textInput)
+                case "ROT13":
+                    textOutput = Ciphers().rot13(textInput)
+                case "Binary":
+                    textOutput = DataFormatter().binaryToText(textInput)
+                case "Hex":
+                    textOutput = DataFormatter().hexToText(textInput)
+                case "Base64":
+                    textOutput = DataFormatter().base64ToText(textInput)
+                default:
+                    textOutput = ""
+                }
+            }
+            
+            
         }) {
-            Text("Convert")
-                .foregroundColor(.white)
-                .padding()
-                .background(
-                    LinearGradient(gradient: Gradient(colors: [Color("Gold"), Color.yellow.opacity(0.6)]), startPoint: .top, endPoint: .bottom)
-                )
+            Text(selectedAction == "Encrypt" ? "Encrypt" : "Decrypt")
+                .foregroundColor(Color("GradientLightDark"))
+                .frame(width: 150, height: 50)
+                .background(Color("GoldButton").opacity(0.9))
                 .cornerRadius(8)
-                .shadow(color: Color.black.opacity(0.2), radius: 3, x: 1, y: 4)
+                .overlay(
+                    RoundedRectangle(cornerRadius: 8)
+                        .stroke(Color("GoldDark"), lineWidth: 1) // Adjust the lineWidth as needed
+                )
+                .padding(.vertical, 20)
+                .shadow(color: Color.black.opacity(0.2), radius: 3, x: 1, y: 3)
         }
     }
     
@@ -177,31 +263,13 @@ struct InputView: View {
                 .foregroundColor(.white)
                 .padding()
                 .background(
-                    LinearGradient(gradient: Gradient(colors: [Color("Gold"), Color.yellow.opacity(0.6)]), startPoint: .top, endPoint: .bottom)
+                    LinearGradient(gradient: Gradient(colors: [Color("Gold"), Color.yellow.opacity(0.8)]), startPoint: .top, endPoint: .bottom)
                 )
                 .cornerRadius(8)
                 .shadow(color: Color.black.opacity(0.2), radius: 3, x: 1, y: 4)
         }
     }
     
-//    private var outputField: some View {
-//        
-//        VStack(spacing: 0) {
-//            ScrollView {
-//                Text(textOutput)
-//                    .padding()
-//                    .foregroundColor(.white)
-//                
-//            }
-//        }//end VStack
-//        .frame(width: UIScreen.main.bounds.width * 0.9, height: 200)
-//        .background(Color.gray.opacity(0.4))
-//        .cornerRadius(10)
-//        .overlay(
-//            RoundedRectangle(cornerRadius: 10)
-//                .stroke(Color.black.opacity(0.3), lineWidth: 1))
-//  
-//    }
     private var outputField: some View {
         VStack(spacing: 0) {
             ScrollView {
