@@ -14,7 +14,7 @@ struct InputView: View {
      */
      
     // Caesar Cipher rotations
-    let caesarRotations = Array(0...25).map { "\($0)" }
+    let caesarRotations = ["All"] + Array(0...25).map { "\($0)" }
     
     // State variables to track selected options
     @State private var selectedRotation = "0"
@@ -62,8 +62,6 @@ struct InputView: View {
         } //end HStack with [action, algos, rotations]
         .frame(height: UIScreen.main.bounds.height * 0.08)
         .padding(.vertical, 20)
-        
-        
     }
     
     private var actionMenu: some View {
@@ -87,10 +85,9 @@ struct InputView: View {
                         .foregroundColor(.white)
                     Image(systemName: "chevron.down")
                         .foregroundColor(Color.yellow.opacity(0.8))
-                        .padding(.trailing)
                 } //end HStack
                 .padding(.vertical, 15)
-                .padding(.leading, 15)
+                .padding(.horizontal, 14)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(Color.yellow.opacity(0.8), lineWidth: 1) // Adjust the lineWidth as needed
@@ -122,10 +119,9 @@ struct InputView: View {
                         .foregroundColor(.white)
                     Image(systemName: "chevron.down")
                         .foregroundColor(Color.yellow.opacity(0.8))
-                        .padding(.trailing)
                 } //end HStack
                 .padding(.vertical, 15)
-                .padding(.leading, 15)
+                .padding(.horizontal, 12)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(Color.yellow.opacity(0.8), lineWidth: 1) // Adjust the lineWidth as needed
@@ -157,10 +153,9 @@ struct InputView: View {
                         .foregroundColor(.white)
                     Image(systemName: "chevron.down")
                         .foregroundColor(Color.yellow)
-                        .padding(.trailing)
                 }
                 .padding(.vertical, 15)
-                .padding(.leading, 15)
+                .padding(.horizontal, 12)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
                         .stroke(Color.yellow, lineWidth: 1) // Adjust the lineWidth as needed
@@ -175,7 +170,7 @@ struct InputView: View {
         //Custom text editor with placeholder text
         ZStack(alignment: .topLeading) {
             if textInput.isEmpty {
-                Text("Enter text here")
+                Text(selectedAction == "Encrypt" ? "Enter text to encrypt" : "Enter text to decrypt")
                     .foregroundColor(Color.white)
                     .padding(.top, 18)
                     .padding(.leading, 16)
@@ -203,8 +198,13 @@ struct InputView: View {
             if (selectedAction == "Encrypt") {
                 switch selectedAlgo {
                 case "Caesar Cipher":
-                    let rotation = Int(selectedRotation) ?? 0
-                    textOutput = Ciphers().caesarCipher(textInput, shift: rotation)
+                    if (selectedRotation == "All") {
+                        textOutput = allCaesarRotations(text: textInput)
+                    }
+                    else {
+                        let rotation = Int(selectedRotation) ?? 0
+                        textOutput = Ciphers().caesarCipher(textInput, shift: rotation)
+                    }
                 case "Atbash Cipher":
                     textOutput = Ciphers().atbashCipher(textInput)
                 case "ROT13":
@@ -222,10 +222,15 @@ struct InputView: View {
             else { //decrpyt
                 switch selectedAlgo {
                 case "Caesar Cipher":
-                    let rotation = Int(selectedRotation) ?? 0
-                    textOutput = Ciphers().caesarCipher(textInput, shift: rotation)
+                    if (selectedRotation == "All") {
+                        textOutput = allCaesarRotations(text: textInput)
+                    }
+                    else {
+                        let rotation = Int(selectedRotation) ?? 0
+                        textOutput = Ciphers().caesarCipherDecryptor(textInput, shift: rotation)
+                    }
                 case "Atbash Cipher":
-                    textOutput = Ciphers().atbashCipher(textInput)
+                    textOutput = Ciphers().atbashCipherDecryptor(textInput)
                 case "ROT13":
                     textOutput = Ciphers().rot13(textInput)
                 case "Binary":
@@ -248,64 +253,58 @@ struct InputView: View {
                 .cornerRadius(8)
                 .overlay(
                     RoundedRectangle(cornerRadius: 8)
-                        .stroke(Color("GoldDark"), lineWidth: 1) // Adjust the lineWidth as needed
+                        .stroke(Color("GoldDark"), lineWidth: 1)
                 )
                 .padding(.vertical, 20)
                 .shadow(color: Color.black.opacity(0.2), radius: 3, x: 1, y: 3)
         }
     }
     
-    private var allRotationsButton: some View {
-        Button(action: {
-            textOutput = allCaesarRotations(text: textInput)
-        }) {
-            Text("All Rotations")
-                .foregroundColor(.white)
-                .padding()
-                .background(
-                    LinearGradient(gradient: Gradient(colors: [Color("Gold"), Color.yellow.opacity(0.8)]), startPoint: .top, endPoint: .bottom)
-                )
-                .cornerRadius(8)
-                .shadow(color: Color.black.opacity(0.2), radius: 3, x: 1, y: 4)
-        }
-    }
-    
     private var outputField: some View {
-        VStack(spacing: 0) {
-            ScrollView {
-                HStack {
-                    Text(textOutput)
-                        .padding()
-                        .foregroundColor(.white)
-
-                    Spacer()
-
-                    // Copy Button
-                    Button(action: {
-                        UIPasteboard.general.string = textOutput
-                    }) {
-                        Image(systemName: "doc.on.doc")
+        ZStack(alignment: .top) {
+            
+            VStack(spacing: 0) {
+                
+                ScrollView {
+                    
+                    HStack {
+                        Text(textOutput)
+                            .padding()
                             .foregroundColor(.white)
+                        Spacer()
                     }
-                    .padding()
                 }
-            }
-            .frame(width: UIScreen.main.bounds.width * 0.9, height: 200)
-            .background(Color.gray.opacity(0.4))
-            .cornerRadius(10)
-
-            // Up Arrow Button
+                .frame(width: UIScreen.main.bounds.width * 0.9, height: 200)
+                .background(Color.gray.opacity(0.4))
+                .cornerRadius(10)
+                
+                // Up Arrow Button
+                Button(action: {
+                    textInput = textOutput
+                }) {
+                    Image(systemName: "arrow.up")
+                        .foregroundColor(.white)
+                        .padding()
+                }
+            } //end VStack
+            .overlay(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(Color.black.opacity(0.3), lineWidth: 1))
+            .zIndex(1)
+            
+            // Copy Button
             Button(action: {
-                textInput = textOutput
+                UIPasteboard.general.string = textOutput
             }) {
-                Image(systemName: "arrow.up")
-                    .foregroundColor(.white)
-                    .padding()
+                Image(systemName: "doc.on.doc")
+                    .foregroundColor(Color("GoldLight")).brightness(0.1)
             }
-        }
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color.black.opacity(0.3), lineWidth: 1))
+            .padding()
+            .position(x: UIScreen.main.bounds.width * 0.9 - 0, y: 30)
+            .zIndex(2)
+            
+        } //end ZStack
+        
     }
 
 }
